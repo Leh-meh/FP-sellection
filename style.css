@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   list-style: none;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    width: 80vw;
+    left: 50%; /*deixar centralizado os dois */
+    transform: translate(-50%); /*deixar centralizado*/
+    display: grid;/*Ativa o CSS Grid, que é um sistema de layout para criar estruturas com linhas e colunas */
+    align-items: center;
+    grid-template-columns: 1fr 600px;
+        /*
+        "1 fração do espaço disponível."
+    Ou seja: ele usa todo o espaço que sobrar, depois que a coluna fixa (600px) for colocada.
+        */
+        gap: 100px;
+        z-index: 2; /*Esse elemento fica sobre os que têm z-index 1 ou 0*/
+    & img {
+        width: 240px;
+    }
+
+    & nav {
+        & ul {
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+        }
+    }
+}
+
+
+section { 
+    background-image: radial-gradient(#4b1963, #6d00d9);
+    height: 100vh; 
+    position: relative;
+
+    & .list {
+        width: 70vw;
+        height: 100%;
+        margin: auto;
+        position: relative;
+
+        & .item {
+            position: absolute;
+            inset: 0;
+
+            & .car-img {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50% );
+                width: 70%;
+
+                & img {
+                    width: 100%;
+                    transform: rotate(-10deg); /*Girar a imagem*/
+                }
+            }
+
+            & .content {
+               position: absolute;
+               right: 100px;
+               width: 70%;
+               height: 100%;
+               display: flex;
+               flex-direction: column;
+               justify-content: end;
+               align-items: end;
+               gap: 20px;
+
+               & .car-information {
+                font-weight: bold;
+               }
+
+               & h2 {
+                font-size: 6rem;
+                line-height: 1em;
+               }
+
+               & .description {
+                color: rgb(212, 212, 212);
+                font-size: 12px;
+                text-align: right;
+                max-width: 400px;
+               }
+
+               & .information {
+                border-radius: 30px;
+                height:35px;
+                width: 120px;
+                text-transform: uppercase; /*tudo maiusculo*/
+                border: 2px solid rgb(73, 15, 107);
+                background-color: #b5f711;
+                color: black;
+                cursor: pointer; /*“mãozinha”*/
+                font-weight: bold;
+               }
+            }
+        }
+    }
+
+     .indicators {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%);
+        height: 200px;
+        width: 90vw;
+     }
+
+     .arrows {
+        & button {
+            & img {
+                width: 80px;
+            }
+        }
+    } 
+}
+   
